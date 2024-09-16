@@ -1,0 +1,227 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1E1E1E;
+    color: #FFF;
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%; /* Ensure body and html take full width */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.segment {
+    height: 100vh; /* Ensure each segment takes full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Ensure segments take full width */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Alternating background colors */
+.segment-1 {
+    background-color: #1E1E1E; /* Dark grey for the first segment */
+}
+
+.segment-2 {
+    background-color: #F5F5F5; /* Off-white for the second segment */
+    color: #000; /* Use black text on a light background */
+}
+
+.segment-3 {
+    background-color: #1E1E1E; /* Dark grey for the third segment */
+}
+
+.segment-4 {
+    background-color: #F5F5F5; /* Off-white for the final segment */
+    color: #000; /* Use black text for form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Segment 1 - Logo and Text */
+.segment-1 {
+    text-align: center;
+}
+
+.logo img {
+    width: 30%; /* Set logo size to 30% of the page */
+    margin: 0 auto; /* Center the logo horizontally */
+    display: block;
+}
+
+.main-text {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.animatable-text {
+    font-size: 1.5rem;
+    color: #BDBDBD;
+    position: relative;
+    height: 1.5rem; /* Match the height to the font-size */
+    overflow: hidden;
+}
+
+.animatable-text span {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fadeOutIn 8s infinite;
+}
+
+.animatable-text .text1 {
+    animation-delay: 0s; /* First text starts immediately */
+}
+
+.animatable-text .text2 {
+    animation-delay: 4s; /* Second text starts after 3 seconds */
+}
+
+@keyframes fadeOutIn {
+     0%, 100% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+}
+
+/* Segment 2 and 3 - Two Column Layout */
+.segment-2 .content, .segment-3 .content {
+    display: flex;
+    flex-direction: row; /* Default: side by side layout */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding in element's total width */
+}
+
+.segment-2 .text-left, .segment-3 .text-right {
+    width: 50%; /* Ensure the text takes up 50% of the space */
+    padding: 20px; /* Add padding around the text */
+    text-align: left; /* Ensure text stays aligned to the left */
+    font-size: 1.25rem; /* Ensure text size remains consistent */
+    box-sizing: border-box; /* Include padding in element's total width */
+    position: relative;
+    z-index: 1; /* Ensure text is above other elements */
+}
+
+.segment-2 .image-right, .segment-3 .image-left {
+    width: 50%; /* Ensure the images take up 50% of the width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.segment-2 .image-right img, .segment-3 .image-left img {
+    width: 100%; /* Ensure image takes full width of its container */
+    height: auto;
+    display: block;
+}
+
+/* Mobile Layout Adjustment */
+@media (max-width: 768px) {
+    .segment-2 .content, .segment-3 .content {
+        flex-direction: column; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    /* Ensure text appears before image on mobile */
+    .segment-2 .text-left, .segment-3 .text-right {
+        width: 100%; /* Full width for text */
+        padding: 20px; /* Add padding for better spacing */
+        font-size: 1.25rem; /* Maintain text size */
+        box-sizing: border-box; /* Include padding in element's total width */
+        order: 1; /* Text should appear first */
+    }
+
+    .segment-2 .image-right, .segment-3 .image-left {
+        width: 100%; /* Full width for image */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px; /* Adjust padding for consistency */
+        box-sizing: border-box; /* Include padding in element's total width */
+        order: 2; /* Image should appear second */
+    }
+
+    .logo img {
+        width: 50%; /* Adjust logo size for smaller screens */
+    }
+}
+
+/* Contact Us Form Styling */
+.contact-form {
+    background: #FFF; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 600px; /* Max width for the form */
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333; /* Dark text for readability */
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333; /* Dark text for readability */
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #1E1E1E; /* Dark grey background for submit button */
+    color: #FFF; /* White text */
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #333; /* Slightly lighter grey on hover */
+}
+
+.fade { 
+    animation-name: fade; 
+    animation-duration: 5s; 
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    display: inline-block;
+    
+   }
+  
+   @keyframes fade {
+    from { width: auto; opacity: 1; }
+    to   { width: 0px; opacity: 0; }
+  }
